@@ -1,0 +1,74 @@
+body {
+    background-color: black;
+    color: white;
+    overflow-y: hidden;
+    font-family: 'Arial', sans-serif;
+}
+
+.webpage {
+    background-color: rgb(12, 12, 12);
+    padding: 1vw 2vw;
+    border: 0.3vw solid white;
+    border-radius: 1vw;
+    min-height: 91vh;
+    margin: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header {
+    font-size: clamp(20px, 2vw, 50px);
+    border-bottom: 0.2vw solid white;
+    margin: 0 auto;
+    width: 50%;
+    text-align: center;
+}
+
+.input {
+    margin: 0 auto;
+}
+
+.select {
+    font-family: 'Arial', sans-serif;
+    font-size: clamp(20px, 0.8vw, 40px);
+    padding: 0.4vw 1vw;
+    border: 0.2vw solid white;
+    border-radius: 0.5vw;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    outline: none;
+    cursor: pointer;
+    width: 10vw;
+    margin: 0 0.5vw;
+    appearance: none;
+}
+
+.output {
+    background-color: rgb(29, 29, 29);
+    min-height: 74vh;
+    padding: 1vw 2vw;
+    border-radius: 1vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.outputTitle {
+    font-size: clamp(30px, 4vw, 80px);
+    border-bottom: 0.2vw solid white;
+    display: inline;
+    padding: 0 5vw;
+}
+
+.outputLangs {
+    font-size: clamp(20px, 1.3vw, 50px);
+    margin-top: 0.4vw;
+}
+
+#langs {
+    width: 33vw;
+}
