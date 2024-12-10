@@ -83,7 +83,7 @@ body {
 }
 
 .outputTitle {
-    font-size: clamp(30px, 4vw, 80px);
+    font-size: clamp(30px, 2.5vw, 70px);
     border-bottom: 0.2vw solid white;
     display: inline;
     padding: 0 5vw;
