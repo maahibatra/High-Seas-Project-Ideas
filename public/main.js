@@ -42,7 +42,7 @@ const features = [
     "real-time ocean current maps",
     "customizable pirate avatars",
     "a crew logbook with achievements",
-    "an inventory visuals with treasure chests",
+    "treasure chests storage",
     "a pirate slang generator",
     "interactive port maps",
     "a tavern meeting scheduler",
@@ -82,12 +82,19 @@ function generateIdea() {
     outputName.innerHTML = sentence;
     outputLangs.innerHTML = `Written in ${language}`;
 
-    const characters = sentence.length;
-    outputName.style.width = `${characters}ch`;
+    const charactersName = sentence.length;
+    outputName.style.width = `${charactersName}ch`;
+    const charactersLangs = language.length + 11;
+    outputLangs.style.width = `${charactersLangs}ch`;
 
     outputName.style.animation = 'none';
+    outputLangs.style.animation = 'none';
 
     setTimeout(() => {
-        outputName.style.animation = `typing 2s steps(${characters}), blink .5s step-end infinite alternate`;
+        outputName.style.animation = `typing 2s steps(${charactersName}), blink .5s step-end infinite alternate`;
+    }, 10);
+
+    setTimeout(() => {
+        outputLangs.style.animation = `typing 2s steps(${charactersLangs}), blink .5s step-end infinite alternate`;
     }, 10);
 }

@@ -10,17 +10,18 @@ body {
     padding: 1vw 2vw;
     border: 0.3vw solid white;
     border-radius: 1vw;
-    min-height: 91vh;
     margin: 1vw;
+    height: 91.7vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
 .header {
-    font-size: clamp(20px, 2vw, 50px);
+    font-size: clamp(30px, 3vw, 80px);
     border-bottom: 0.2vw solid white;
     margin: 0 auto;
+    margin-top: 1vh;
     width: 50%;
     text-align: center;
 }
@@ -72,7 +73,7 @@ body {
 
 .output {
     background-color: rgb(29, 29, 29);
-    min-height: 74vh;
+    min-height: 71vh;
     padding: 1vw 2vw;
     border-radius: 1vw;
     text-align: center;
@@ -95,7 +96,7 @@ body {
     animation: typing 0.7s steps(13), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 3px solid;
+    border-right: 0.25vw solid;
     font-family: monospace;
 }
 
@@ -113,9 +114,31 @@ body {
     }
 }
 
-.outputLangs {
+.outputLangsDiv {
     font-size: clamp(20px, 1.3vw, 50px);
     margin-top: 0.4vw;
+}
+
+.outputLangs {
+    animation: typing 0.7s steps(7), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 0.25vw solid;
+    font-family: monospace;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    } to {
+        width: 100%;
+    }
+}
+      
+@keyframes blink {
+    50% {
+        border-right-color: transparent;
+    }
 }
 
 #langs {
