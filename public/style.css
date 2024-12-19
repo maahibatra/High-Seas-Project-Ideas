@@ -43,6 +43,7 @@ body {
     margin: 0 0.5vw;
     appearance: none;
     transition: background-color 0.3s ease;
+    text-align: center;
 }
 
 .select:hover {
@@ -59,7 +60,7 @@ body {
     color: white;
     outline: none;
     cursor: pointer;
-    width: 7vw;
+    width: 10vw;
     margin: 1vw 0;
     appearance: none;
     transition: background-color 0.3s ease;
@@ -85,8 +86,31 @@ body {
 .outputTitle {
     font-size: clamp(30px, 2.5vw, 70px);
     border-bottom: 0.2vw solid white;
-    display: inline;
+    display: inline-block;
     padding: 0 5vw;
+}
+
+.outputName {
+    font-size: clamp(20px, 1.8vw, 60px);
+    animation: typing 0.7s steps(13), blink .5s step-end infinite alternate;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-family: monospace;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    } to {
+        width: 100%;
+    }
+}
+      
+@keyframes blink {
+    50% {
+        border-right-color: transparent;
+    }
 }
 
 .outputLangs {
@@ -95,5 +119,5 @@ body {
 }
 
 #langs {
-    width: 33vw;
+    width: 20vw;
 }

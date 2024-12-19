@@ -69,15 +69,25 @@ function generateIdea() {
     const language = selectedLanguage === "languages" ? languages[Math.floor(Math.random() * languages.length)] : selectedLanguage;
 
     const selectedDifficulty = document.getElementById("diffs").value;
-
     const dataset = selectedDifficulty === "difficulty" ? randomDiff.things : data[selectedDifficulty];
 
     const thing = dataset[Math.floor(Math.random() * dataset.length)];
-
     const feature = features[Math.floor(Math.random() * features.length)];
 
     const sentence = `A${thing} featuring ${feature}.`;
+    
+    const outputName = document.getElementById('outputName');
+    const outputLangs = document.getElementById('outputLangs');
 
-    document.getElementById('outputTitle').innerHTML = sentence;
-    document.getElementById('outputLangs').innerHTML = `Written in ${language}`;
+    outputName.innerHTML = sentence;
+    outputLangs.innerHTML = `Written in ${language}`;
+
+    const characters = sentence.length;
+    outputName.style.width = `${characters}ch`;
+
+    outputName.style.animation = 'none';
+
+    setTimeout(() => {
+        outputName.style.animation = `typing 2s steps(${characters}), blink .5s step-end infinite alternate`;
+    }, 10);
 }
