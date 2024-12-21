@@ -116,4 +116,19 @@ function generateIdea() {
     setTimeout(() => {
         outputLangs.style.animation = `typing 2s steps(${charactersLangs}), blink .5s step-end infinite alternate`;
     }, 10);
+
+    fetch("http://localhost:5000/api/generateSpeech", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ prompt: `Turn this line: "${sentence}" into pirate speech. Only give one sentence in the English language.` })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log("Pirate Speech:", data);
+    })
+    .catch(error => {
+        console.error("Error generating:", error)
+    });
 }

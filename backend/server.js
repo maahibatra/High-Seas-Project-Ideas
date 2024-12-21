@@ -10,15 +10,19 @@ app.use(express.json());
 app.use(cors());
 
 app.post("/api/generateSpeech", async(req, res) => {
-    const prompt = "Say one line in pirate speech.";
+    const { prompt } = req.body;
+    if(!prompt) {
+        return res.status(400).json({ error: "Prompt is required" });
+    }
+
     try {
         const response = await axios.post(
-            'https://api-inference.huggingface.co/models/Qwen/Qwen2.5-Coder-32B-Instruct',
+            'https://api-inference.huggingface.co/models/Qwen/Qwen2.5-72B-Instruct',
             { inputs: prompt },
             {
                 headers: {
-                    Authorization: `Bearer ${process.env.hFKey}`,
-                },
+                    Authorization: `Bearer ${process.env.hFKey}`
+                }
             }
         );
 
@@ -26,9 +30,11 @@ app.post("/api/generateSpeech", async(req, res) => {
 
         const generatedText = response.data[0]?.generated_text;
         if(generatedText) {
-            res.status(200).json(generatedText);
+            let pirateSpeech = generatedText.replace(/Turn this line[^]*?English language. /g, "");
+            pirateSpeech = pirateSpeech.split("\n")[0];
+            res.status(200).json({ pirateSpeech });
         } else {
-        res.status(500).json({error: "No ideas generated"});
+        res.status(500).json({error: "No pirate speech generated"});
         }
     } catch (error) {
         console.error('Error calling Hugging Face API:', error.response || error);
