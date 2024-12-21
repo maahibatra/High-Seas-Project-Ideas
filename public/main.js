@@ -1,7 +1,26 @@
 window.onload = function() {
-    document.getElementById('diffs').value = 'difficulty';
-    document.getElementById('langs').value = 'languages';
+    document.getElementById("diffs").value = "difficulty";
+    document.getElementById("langs").value = "languages";
 }
+
+const checkbox = document.getElementById("checkbox");
+
+const savedState = localStorage.getItem("checkboxState");
+if(savedState === "checked") {
+    checkbox.checked = true;
+} else {
+    checkbox.checked = false;
+}
+
+checkbox.addEventListener("change", function() {
+    if(this.checked) {
+        console.log("Checkbox checked");
+        localStorage.setItem("checkboxState", "checked");
+    } else {
+        console.log("Checkbox unchecked");
+        localStorage.setItem("checkboxState", "unchecked");
+    }
+});
 
 const data = {
     easy: [
@@ -76,8 +95,8 @@ function generateIdea() {
 
     const sentence = `A${thing} featuring ${feature}.`;
     
-    const outputName = document.getElementById('outputName');
-    const outputLangs = document.getElementById('outputLangs');
+    const outputName = document.getElementById("outputName");
+    const outputLangs = document.getElementById("outputLangs");
 
     outputName.innerHTML = sentence;
     outputLangs.innerHTML = `Written in ${language}`;
@@ -87,8 +106,8 @@ function generateIdea() {
     const charactersLangs = language.length + 11;
     outputLangs.style.width = `${charactersLangs}ch`;
 
-    outputName.style.animation = 'none';
-    outputLangs.style.animation = 'none';
+    outputName.style.animation = "none";
+    outputLangs.style.animation = "none";
 
     setTimeout(() => {
         outputName.style.animation = `typing 2s steps(${charactersName}), blink .5s step-end infinite alternate`;
