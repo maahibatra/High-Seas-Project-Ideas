@@ -1,6 +1,8 @@
 body {
+    background-color: #06244a;
     background-image: url(bg.jpeg);
     background-size: cover;
+    background-repeat: no-repeat;
     overflow-y: hidden;
     font-family: 'Nunito', serif;
 }
@@ -14,7 +16,15 @@ body {
     height: 91.7vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 1vh;
+}
+
+.logo {
+    position: absolute;
+    top: 2vw;
+    left: 3vw;
+    z-index: 2;
 }
 
 .header {
@@ -32,8 +42,8 @@ body {
     top: 3vw;
     right: 4vw;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 5vw;
+    height: 2.8vw;
 }
 
 .switch .checkbox {
@@ -56,10 +66,10 @@ body {
 .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
+    height: 2.15vw;
+    width: 2.15vw;
+    left: 0.33vw;
+    bottom: 0.33vw;
     background-color: #f9e1f9;
     transition: .4s;
 }
@@ -69,23 +79,45 @@ body {
 }
 
 .checkbox:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 0.08vw #2196F3;
 }
 
 .checkbox:checked + .slider:before {
-    transform: translateX(26px);
+    transform: translateX(2.15vw);
 }
 
 .slider.round {
-    border-radius: 34px;
+    border-radius: 5vw;
 }
 
 .slider.round:before {
     border-radius: 50%;
 }
 
+.tooltip {
+    visibility: hidden;
+    background-color: #275a9c;
+    color: white;
+    text-align: center;
+    padding: 4px 8px;
+    border: 0.2vw solid #133c73;
+    border-radius: 4px;
+    position: absolute;
+    transform: translateX(-13vw);
+    width: 10vw;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.toggle:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
 .input {
     margin: 0 auto;
+    margin-bottom: 1vh;
 }
 
 .select {
@@ -122,10 +154,10 @@ body {
     outline: none;
     cursor: pointer;
     width: 10vw;
-    margin: 1vw 0;
     appearance: none;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     overflow: hidden;
+    margin-right: 0.5vw;
 }
 
 .gen:hover {
@@ -138,7 +170,7 @@ body {
     background-color: rgba(7, 27, 124, 0.5);
     border: 0.2vw solid #133c73;
     border-radius: 0.5vw;
-    min-height: 69vh;
+    min-height: 74%;
     padding: 1vw 2vw;
     border-radius: 1vw;
     text-align: center;
@@ -152,7 +184,7 @@ body {
 
 .outputTitle {
     font-size: clamp(30px, 2.5vw, 70px);
-    border-bottom: 0.2vw solid #133c73;
+    border-bottom: 0.2vw solid #06244a;
     display: inline-block;
     padding: 0 5vw;
 }
@@ -189,7 +221,7 @@ body {
     animation: typing 0.7s steps(7), blink .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 0.3vw solid #2a49ab;
+    border-right: 0.3vw solid;
     font-family: 'IBM Plex Mono', serif;
 }
 

@@ -32,6 +32,7 @@ app.post("/api/generateSpeech", async(req, res) => {
         if(generatedText) {
             let pirateSpeech = generatedText.replace(/Turn this line[^]*?English language. /g, "");
             pirateSpeech = pirateSpeech.split("\n")[0];
+            pirateSpeech = pirateSpeech.replace(/['"]/g, '');
             res.status(200).json({ pirateSpeech });
         } else {
         res.status(500).json({error: "No pirate speech generated"});

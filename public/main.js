@@ -98,37 +98,86 @@ function generateIdea() {
     const outputName = document.getElementById("outputName");
     const outputLangs = document.getElementById("outputLangs");
 
-    outputName.innerHTML = sentence;
-    outputLangs.innerHTML = `Written in ${language}`;
-
-    const charactersName = sentence.length;
-    outputName.style.width = `${charactersName}ch`;
-    const charactersLangs = language.length + 11;
-    outputLangs.style.width = `${charactersLangs}ch`;
-
     outputName.style.animation = "none";
     outputLangs.style.animation = "none";
 
-    setTimeout(() => {
-        outputName.style.animation = `typing 2s steps(${charactersName}), blink .5s step-end infinite alternate`;
-    }, 10);
+    if(checkbox.checked) {
+        outputName.innerHTML = "Loading...";
+        outputLangs.innerHTML = "Waiting...";
 
-    setTimeout(() => {
-        outputLangs.style.animation = `typing 2s steps(${charactersLangs}), blink .5s step-end infinite alternate`;
-    }, 10);
+        outputName.style.animation = "none";
+        outputLangs.style.animation = "none";
 
-    fetch("http://localhost:5000/api/generateSpeech", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ prompt: `Turn this line: "${sentence}" into pirate speech. Only give one sentence in the English language.` })
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log("Pirate Speech:", data);
-    })
-    .catch(error => {
-        console.error("Error generating:", error)
-    });
+        outputName.style.width = "10ch";
+        outputLangs.style.width = "10ch";
+
+        setTimeout(() => {
+            outputName.style.animation = `typing 0.5s steps(10), blink .5s step-end infinite alternate`;
+        }, 10);
+
+        setTimeout(() => {
+            outputLangs.style.animation = `typing 0.5s steps(10), blink .5s step-end infinite alternate`;
+        }, 10);
+
+        fetch("http://localhost:5000/api/generateSpeech", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ prompt: `Turn this line: "${sentence}" into pirate speech. Only give one sentence, 70 characters maximum in the English language.` })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.pirateSpeech) {
+                const pirateSpeech = data.pirateSpeech;
+
+                outputName.innerHTML = pirateSpeech;
+                outputLangs.innerHTML = `Written in ${language}`;
+
+                const charactersSpeech = pirateSpeech.length;
+                outputName.style.width = `${charactersSpeech}ch`;
+                const charactersLangs = language.length + 11;
+                outputLangs.style.width = `${charactersLangs}ch`;
+
+                outputName.style.animation = "none";
+                outputLangs.style.animation = "none";
+
+                setTimeout(() => {
+                    outputName.style.animation = `typing 3s steps(${charactersSpeech}), blink .5s step-end infinite alternate`;
+                }, 10);
+
+                setTimeout(() => {
+                    outputLangs.style.animation = `typing 3s steps(${charactersLangs}), blink .5s step-end infinite alternate`;
+                }, 10);
+            }
+            console.log("Pirate Speech:", data);
+        })
+        .catch(error => {
+            console.error("Error generating:", error);
+        });
+    } else {
+        outputName.innerHTML = sentence;
+        outputLangs.innerHTML = `Written in ${language}`
+        
+        const charactersName = sentence.length;
+        outputName.style.width = `${charactersName}ch`;
+        const charactersLangs = language.length + 11;
+        outputLangs.style.width = `${charactersLangs}ch`;
+
+        outputName.style.animation = "none";
+        outputLangs.style.animation = "none";
+
+        setTimeout(() => {
+            outputName.style.animation = `typing 3s steps(${charactersName}), blink .5s step-end infinite alternate`;
+        }, 50);
+
+        setTimeout(() => {
+            outputLangs.style.animation = `typing 3s steps(${charactersLangs}), blink .5s step-end infinite alternate`;
+        }, 50);
+
+        console.log("Checkbox unchecked.");
+    }
 }
+
+//either reduce length of AI output or make it multiline
+//change toggle bg colors
