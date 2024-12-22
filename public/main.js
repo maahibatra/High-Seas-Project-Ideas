@@ -132,11 +132,11 @@ function generateIdea() {
                 const pirateSpeech = data.pirateSpeech;
 
                 outputName.innerHTML = pirateSpeech;
-                outputLangs.innerHTML = `Written in ${language}`;
+                outputLangs.innerHTML = `Written in ${language}.`;
 
                 const charactersSpeech = pirateSpeech.length;
                 outputName.style.width = `${charactersSpeech}ch`;
-                const charactersLangs = language.length + 11;
+                const charactersLangs = language.length + 12;
                 outputLangs.style.width = `${charactersLangs}ch`;
 
                 outputName.style.animation = "none";
@@ -157,11 +157,11 @@ function generateIdea() {
         });
     } else {
         outputName.innerHTML = sentence;
-        outputLangs.innerHTML = `Written in ${language}`
+        outputLangs.innerHTML = `Written in ${language}.`;
         
         const charactersName = sentence.length;
         outputName.style.width = `${charactersName}ch`;
-        const charactersLangs = language.length + 11;
+        const charactersLangs = language.length + 12;
         outputLangs.style.width = `${charactersLangs}ch`;
 
         outputName.style.animation = "none";
