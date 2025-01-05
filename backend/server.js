@@ -4,7 +4,7 @@ const cors = require("cors");
 const axios = require("axios");
 require('dotenv').config();
 const app = express();
-const port = 5000;
+const API_URL = "https://high-seas-project-ideas.vercel.app//api/generateSpeech";
 
 app.use(express.json());
 app.use(cors());
