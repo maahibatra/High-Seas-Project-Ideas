@@ -1,6 +1,6 @@
 # High Seas Project Ideas
 
-NOTE: THE PIRATE SPEECH TOGGLE IS NOT WORKING AT THE MOMENTz
+NOTE: THE PIRATE SPEECH TOGGLE IS NOT WORKING AT THE MOMENT.
 
 This project is made for High Seas - Hack Club to help anyone who needs inspiration - with a little pirate twist!!
 
