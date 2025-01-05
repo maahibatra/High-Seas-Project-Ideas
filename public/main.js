@@ -119,7 +119,7 @@ function generateIdea() {
             outputLangs.style.animation = `typing 0.5s steps(10), blink .5s step-end infinite alternate`;
         }, 10);
 
-        fetch("https://https://high-seas-project-ideas.vercel.app/api/generateSpeech", {
+        fetch("https://high-seas-project-ideas.vercel.app/api/generateSpeech", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
