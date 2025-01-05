@@ -119,7 +119,7 @@ function generateIdea() {
             outputLangs.style.animation = `typing 0.5s steps(10), blink .5s step-end infinite alternate`;
         }, 10);
 
-        fetch("http://localhost:5000/api/generateSpeech", {
+        fetch("https://https://high-seas-project-ideas.vercel.app/api/generateSpeech", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -178,6 +178,3 @@ function generateIdea() {
         console.log("Checkbox unchecked.");
     }
 }
-
-//either reduce length of AI output or make it multiline
-//change toggle bg colors

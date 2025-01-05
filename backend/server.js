@@ -42,7 +42,3 @@ app.post("/api/generateSpeech", async(req, res) => {
         res.status(500).json({ error: 'Error processing your request' });
     }
 });
-
-app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
-});
