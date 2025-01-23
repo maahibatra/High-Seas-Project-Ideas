@@ -1,7 +1,5 @@
 # High Seas Project Ideas
 
-NOTE: THE PIRATE SPEECH TOGGLE IS NOT WORKING AT THE MOMENT.
-
 This project is made for High Seas - Hack Club to help anyone who needs inspiration - with a little pirate twist!!
 
 ## Features
@@ -13,5 +11,15 @@ This project is made for High Seas - Hack Club to help anyone who needs inspirat
 ## DEMO
 
 - [Click Here!!](https://high-seas-project-ideas.vercel.app/)
+
+## Guide
+
+- Select your preferred difficulty or language in the dropdown - OPTIONAL.
+- If you want pirate speech, click the toggle button in the top right corner.
+- Click the generate button and have fun with your brainstorming sessions.
+
+## Why I Even Built This
+
+Honestly, I was bored. I was also so incredibly out of ideas for projects. So, I tried to search for projects on the internet. Came up empty handed. Then this idea struck me - and now I can never run out of ideas again!
 
 ### HAVE FUN!!
