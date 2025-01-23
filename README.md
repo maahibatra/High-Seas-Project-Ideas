@@ -23,3 +23,5 @@ This project is made for High Seas - Hack Club to help anyone who needs inspirat
 Honestly, I was bored. I was also so incredibly out of ideas for projects. So, I tried to search for projects on the internet. Came up empty handed. Then this idea struck me - and now I can never run out of ideas again!
 
 ### HAVE FUN!!
+
+(Also please don't mind the weird commit history towards the end, I fear I was losing my mind due to a fever T~T)
